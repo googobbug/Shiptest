@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/bow
 	name = "HP Longbow"
-	desc = "A modern rendition of a prehistoric weapon, built by Hunter's Pride. Chambered in 30x750 caseless - that is to say, it fires arrows."
+	desc = "A modern rendition of a prehistoric weapon, built by Hunter's Pride. While not as easy to operate as modern compound bows, it packs quite a bit more punch. Chambered in 6.5x750 caseless - that is to say, it fires arrows."
 	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "bow"
 	item_state = "pipebow"
@@ -15,6 +15,8 @@
 	bolt_type = BOLT_TYPE_NO_BOLT
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
 	has_safety = FALSE
+	gun_firemodes = list(FIREMODE_SEMIAUTO) // I fucking guess bro
+	default_firemode = FIREMOD_SEMIAUTO
 
 	force = 10
 	attack_verb = list("whipped", "cracked")
@@ -48,9 +50,10 @@
 	if(!chambered)
 		return
 	if(!wielded)
+		to_chat(user, span_warning("You need both hands to fire this!"))
 		return
 	if(!drawn)
-		to_chat(user, span_warning("You can't shoot without drawing the bow!"))
+		to_chat(user, span_warning("The bow needs to be drawn first!"))
 		return
 	drawn = FALSE
 	. = ..() //fires, removing the arrow
@@ -58,6 +61,10 @@
 
 /obj/item/gun/ballistic/bow/shoot_with_empty_chamber(mob/living/user)
 	return // no clicking sounds please
+
+/obj/item/gun/ballistic/bow/serene
+	name = "Model 5 Hunting Bow"
+	desc = "A modern compound bow for hunting large game. Typically used in locations with heavy restrictions on firearms or by hunters with particular preferences. Chambered in 6.5x750 caseless - that is to say, it fires arrows."
 
 /obj/item/storage/bag/quiver
 	name = "quiver"
