@@ -163,22 +163,23 @@
 	if(prob(10))
 		desc = pick(special_descs)
 
-/obj/item/reagent_containers/hypospray/medipen/stimpack //goliath kiting
-	name = "stimpack medipen"
-	desc = "A rapid way to stimulate your body's adrenaline, allowing for freer movement in restrictive armor."
-	icon_state = "stimpen"
-	item_state = "stimpen"
-	volume = 20
-	amount_per_transfer_from_this = 20
-	list_reagents = list(/datum/reagent/medicine/ephedrine = 10, /datum/reagent/consumable/coffee = 10)
-
-/obj/item/reagent_containers/hypospray/medipen/stimpack/crisis
-	name = "crisis stimpack"
+/obj/item/reagent_containers/hypospray/medipen/stimpack // goliath kiting // among other uses
+	name = "stimpack"
+	desc = "A cheap, easy to produce cocktail of stimulants, painkillers, and healing agents. The lifeblood of the mining industry. While overuse has been linked to heart problems, they see frequent use recreationally."
 	icon_state = "stimpen"
 	item_state = "stimpen"
 	base_icon_state = "stimpen"
-	desc = "A modified stimulant autoinjector, containing a cocktail of potent nerve excitants and long-release healing chemicals. Designed for use in emergency situations where medical help may be hours or days away."
-	list_reagents = list(/datum/reagent/medicine/stimulants = 5, /datum/reagent/medicine/ephedrine = 5, /datum/reagent/medicine/panacea = 15)
+	custom_price = 100
+	volume = 20
+	amount_per_transfer_from_this = 20
+	list_reagents = list(/datum/reagent/drug/cinesia = 5, /datum/reagent/medicine/tramal = 5, /datum/reagent/medicine/indomide = 10)
+
+/obj/item/reagent_containers/hypospray/medipen/stimpack/crisis
+	name = "crisis stimpack"
+	desc = "An autoinjector containing a cocktail of potent stimulants and long-release healing chemicals. Designed for stabilizing and mobilizing patients in emergency situations where medical help may be hours or days away."
+	volume = 25
+	amount_per_transfer_from_this = 25
+	list_reagents = list(/datum/reagent/medicine/stimulants = 5, /datum/reagent/drug/cinesia = 5, /datum/reagent/medicine/panacea = 15)
 
 /obj/item/reagent_containers/hypospray/medipen/morphine
 	name = "morphine medipen"
